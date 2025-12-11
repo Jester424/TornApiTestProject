@@ -8,9 +8,13 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
-            using HttpClient client = new HttpClient();
+            Console.WriteLine("Please input your API key for use. A Public Only key works fine");
+            string apiKey = Console.ReadLine();
+            Console.WriteLine("Please input ID of user.");
+            string userId = Console.ReadLine();
+            string url = $"https://api.torn.com/user/{userId}?selections=&key={apiKey}";
 
-            string url = "https://api.torn.com/user/2054568?selections=&key=lTXnTEVaHPhbKLRy";
+            using HttpClient client = new HttpClient();
 
             try
             {
